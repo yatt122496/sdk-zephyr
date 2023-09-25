@@ -1,0 +1,20 @@
+# Bluetooth GATT Heart Rate service
+
+# Copyright (c) 2018 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig BT_BBQOVN
+	bool "GATT BBQOVN service"
+
+if BT_BBQOVN
+
+config BT_BBQOVN_DISCONNECTED_DELAY_EN
+	bool "BBQOVN Disconnect delay allowed"
+
+config BT_BBQOVN_DISCONNECTED_DELAY_TIME
+	int "BBQOVN Disconnect delay time (s)"
+	default 10
+	help
+	  BBQOVN probe disconnection delay time.
+
+endif # BT_BBQOVN

@@ -1,0 +1,6 @@
+# Copyright (c) 2023 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_BBQOVN_A
+	bool "BBQOVN_A"
+	depends on SOC_NRF52832_QFAA

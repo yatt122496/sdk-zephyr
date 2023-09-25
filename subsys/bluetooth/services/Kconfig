@@ -12,6 +12,8 @@ rsource "Kconfig.bas"
 
 rsource "Kconfig.hrs"
 
+rsource "Kconfig.bbqovn"
+
 rsource "Kconfig.tps"
 
 rsource "ias/Kconfig.ias"
