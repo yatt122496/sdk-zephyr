@@ -43,13 +43,6 @@ static void bbqovn_ccc_cfg_changed(const struct bt_gatt_attr *attr, uint16_t val
 	}
 }
 
-static ssize_t read_blsc(struct bt_conn *conn, const struct bt_gatt_attr *attr,
-			 void *buf, uint16_t len, uint16_t offset)
-{
-	return bt_gatt_attr_read(conn, attr, buf, len, offset, &bbqovn_blsc,
-				 sizeof(bbqovn_blsc));
-}
-
 const static uint8_t sensorDesc[]  				= "BBQOVN-A SENSOR";
 
 enum {
@@ -73,7 +66,7 @@ static ssize_t wirte_bbqovn(struct bt_conn *conn, const struct bt_gatt_attr *att
 BT_GATT_SERVICE_DEFINE(bbqovn_svc,
 	BT_GATT_PRIMARY_SERVICE(BT_UUID_DECLARE_128(BBQOVN_UUID_BASE)),
 	BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_16(BBQOVN_CHAR_UUID_SENSOR), BT_GATT_CHRC_READ|BT_GATT_CHRC_WRITE_WITHOUT_RESP|BT_GATT_CHRC_WRITE,
-			       BT_GATT_PERM_READ | BT_GATT_PERM_WRITE, read_bbqovn, wirte_bbqovn, NULL),
+			       BT_GATT_PERM_READ | BT_GATT_PERM_WRITE, read_bbqovn, (bt_gatt_attr_write_func_t)wirte_bbqovn, NULL),
 	BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_128(BBQOVN_NOTIFY_UUID_BASE), BT_GATT_CHRC_NOTIFY,
 			       BT_GATT_PERM_READ, NULL, NULL, NULL),
 	BT_GATT_CCC(bbqovn_ccc_cfg_changed, BT_GATT_PERM_READ | BT_GATT_PERM_WRITE),
