@@ -141,6 +141,13 @@ arduino_serial: &uart0 {
 	pinctrl-names = "default", "sleep";
 };
 
+arduino_spi: &spi1 {
+	compatible = "nordic,nrf-spi";
+	pinctrl-0 = <&spi1_default>;
+	pinctrl-1 = <&spi1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
 fem_spi: &spi0 {
 	status = "okay";
 	cs-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
