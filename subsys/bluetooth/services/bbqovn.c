@@ -93,7 +93,6 @@ static ssize_t read_bbqovn(struct bt_conn *conn, const struct bt_gatt_attr *attr
 	return bt_gatt_attr_read(conn, attr, buf, len, offset, responce, responce_len);
 }
 
-extern void beep_pwm_start(beep_mode_t mode, uint8_t num);
 
 extern void bbqovn_test_cb(uint8_t *buf, uint8_t len);
 static ssize_t wirte_bbqovn(struct bt_conn *conn, const struct bt_gatt_attr *attr,
