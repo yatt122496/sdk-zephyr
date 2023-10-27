@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2022 Jimmy Ou <yanagiis@gmail.com>
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	chosen {
+		zephyr,display = &ht1621_ht1621_8x8;
+	};
+};
+
+&arduino_spi {
+	status = "okay";
+
+	ht1621_ht1621_8x8: ht1621@0 {
+		compatible = "maxim,ht1621";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+		num-cascading = <1>;
+		intensity = <0>;
+		scan-limit = <7>;
+	};
+};

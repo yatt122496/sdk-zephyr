@@ -1,0 +1,11 @@
+# Copyright (c) 2022 Jimmy Ou <yanagiis@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+config HT1621
+	bool "HT1621 LED display driver"
+	default y
+	depends on DT_HAS_MAXIM_HT1621_ENABLED
+	select SPI
+	help
+	  Enable driver for the Maxim HT1621 SPI LED display driver.
+	  It is supporting up to 64 individual LEDs per HT1621.
